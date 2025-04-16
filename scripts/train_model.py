@@ -1,6 +1,9 @@
 import argparse
 import os
 from transformers import GPT2Tokenizer
+import sys
+# resolve path to src folder
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from src.data_utils import prepare_dataset
 from src.model import load_model, setup_training, train_model, save_model
 

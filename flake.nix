@@ -35,7 +35,7 @@
               transformers
               datasets
               pyarrow
-              rouge
+              rouge-score
               spacy
             ]))
           ];
