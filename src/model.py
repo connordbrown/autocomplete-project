@@ -9,11 +9,17 @@ def setup_training(model, train_dataset, eval_dataset=None,
                    output_dir="./models/webtext-model", 
                    epochs=3, batch_size=8):
     """Setup training arguments and trainer."""
+    eval_steps = None
+    if eval_dataset:
+        evaluation_strategy = "steps"
+        eval_steps = len(train_dataset) // batch_size
+    else:
+        evaluation_strategy = "no"
     training_args = TrainingArguments(
         output_dir=output_dir,
-        evaluation_strategy="epoch" if eval_dataset else "no",
         learning_rate=5e-5,
         per_device_train_batch_size=batch_size,
+        eval_steps=eval_steps,
         per_device_eval_batch_size=batch_size,
         num_train_epochs=epochs,
         weight_decay=0.01,
@@ -21,6 +27,7 @@ def setup_training(model, train_dataset, eval_dataset=None,
         load_best_model_at_end=True if eval_dataset else False,
     )
     
+    training_args.evaluation_strategy = evaluation_strategy  # Set it after initialization
     trainer = Trainer(
         model=model,
         args=training_args,

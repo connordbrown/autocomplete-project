@@ -34,6 +34,7 @@
               torch
               transformers
               datasets
+              accelerate
               pyarrow
               rouge-score
               spacy

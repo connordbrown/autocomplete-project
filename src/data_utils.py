@@ -3,7 +3,8 @@ from transformers import GPT2Tokenizer
 
 def load_webtext():
     """Load WebText dataset."""
-    return load_dataset("openwebtext")
+    # "stas/openwebtext-10k" is a smaller subset with 10k samples
+    return load_dataset("stas/openwebtext-10k")
 
 def load_gutenberg():
     """Load Gutenberg dataset."""
