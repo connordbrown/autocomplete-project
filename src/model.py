@@ -1,0 +1,41 @@
+import torch
+from transformers import GPT2LMHeadModel, Trainer, TrainingArguments
+
+def load_model(model_name="gpt2"):
+    """Load pre-trained GPT-2 model."""
+    return GPT2LMHeadModel.from_pretrained(model_name)
+
+def setup_training(model, train_dataset, eval_dataset=None, 
+                   output_dir="./models/webtext-model", 
+                   epochs=3, batch_size=8):
+    """Setup training arguments and trainer."""
+    training_args = TrainingArguments(
+        output_dir=output_dir,
+        evaluation_strategy="epoch" if eval_dataset else "no",
+        learning_rate=5e-5,
+        per_device_train_batch_size=batch_size,
+        per_device_eval_batch_size=batch_size,
+        num_train_epochs=epochs,
+        weight_decay=0.01,
+        save_strategy="epoch",
+        load_best_model_at_end=True if eval_dataset else False,
+    )
+    
+    trainer = Trainer(
+        model=model,
+        args=training_args,
+        train_dataset=train_dataset,
+        eval_dataset=eval_dataset,
+    )
+    
+    return trainer
+
+def train_model(trainer):
+    """Train the model using the provided trainer."""
+    return trainer.train()
+
+def save_model(model, tokenizer, output_dir):
+    """Save model and tokenizer to disk."""
+    model.save_pretrained(output_dir)
+    tokenizer.save_pretrained(output_dir)
+    print(f"Model saved to {output_dir}")
