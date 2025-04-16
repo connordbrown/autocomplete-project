@@ -31,10 +31,12 @@
               scikit-learn
               nltk
               numpy
-              pytorch
+              torch
               transformers
               datasets
               pyarrow
+              rouge
+              spacy
             ]))
           ];
           shellHook = ''
