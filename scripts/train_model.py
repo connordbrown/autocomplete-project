@@ -15,6 +15,8 @@ def main():
                        help="Number of training epochs")
     parser.add_argument("--batch_size", type=int, default=8,
                        help="Training batch size")
+    parser.add_argument("--max_samples", type=int, default=10000,
+                       help="Maximum number of samples to use (None for all)")
     args = parser.parse_args()
     
     # Ensure output directory exists
@@ -25,7 +27,13 @@ def main():
     tokenizer.pad_token = tokenizer.eos_token
     
     print(f"Loading and preprocessing {args.dataset} dataset...")
-    tokenized_dataset = prepare_dataset(args.dataset, tokenizer)
+    print(f"Max samples: {args.max_samples if args.max_samples else 'All'}")
+    
+    tokenized_dataset = prepare_dataset(
+        args.dataset, 
+        tokenizer, 
+        max_samples=args.max_samples
+    )
     
     # Prepare training and evaluation datasets
     train_dataset = tokenized_dataset["train"]
