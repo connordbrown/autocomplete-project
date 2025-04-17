@@ -1,0 +1,14 @@
+{"time":"2025-04-16T23:57:17.219644267Z","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/home/user/autocomplete-project/wandb/offline-run-20250416_235717-gr1ubmw9/logs/debug-core.log"}
+{"time":"2025-04-16T23:57:17.325452516Z","level":"INFO","msg":"created new stream","id":"gr1ubmw9"}
+{"time":"2025-04-16T23:57:17.325534146Z","level":"INFO","msg":"stream: started","id":"gr1ubmw9"}
+{"time":"2025-04-16T23:57:17.325860296Z","level":"INFO","msg":"writer: Do: started","stream_id":"gr1ubmw9"}
+{"time":"2025-04-16T23:57:17.326332893Z","level":"INFO","msg":"handler: started","stream_id":"gr1ubmw9"}
+{"time":"2025-04-16T23:57:17.326384053Z","level":"INFO","msg":"sender: started","stream_id":"gr1ubmw9"}
+{"time":"2025-04-16T23:57:17.335997779Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-16T23:57:27.351760142Z","level":"INFO","msg":"stream: closing","id":"gr1ubmw9"}
+{"time":"2025-04-16T23:57:27.351823857Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-16T23:57:27.353532437Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-16T23:57:27.35367394Z","level":"INFO","msg":"handler: closed","stream_id":"gr1ubmw9"}
+{"time":"2025-04-16T23:57:27.353689712Z","level":"INFO","msg":"writer: Close: closed","stream_id":"gr1ubmw9"}
+{"time":"2025-04-16T23:57:27.353701768Z","level":"INFO","msg":"sender: closed","stream_id":"gr1ubmw9"}
+{"time":"2025-04-16T23:57:27.353865627Z","level":"INFO","msg":"stream: closed","id":"gr1ubmw9"}

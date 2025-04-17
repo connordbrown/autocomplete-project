@@ -49,12 +49,13 @@ def main():
     # Setup training
     print("Setting up training...")
     trainer = setup_training(
-        model, 
-        train_dataset, 
-        eval_dataset,
-        output_dir=args.output_dir,
-        epochs=args.epochs,
-        batch_size=args.batch_size
+    model, 
+    train_dataset, 
+    eval_dataset,
+    output_dir=args.output_dir,
+    epochs=args.epochs,
+    batch_size=args.batch_size,
+    tokenizer=tokenizer  # Pass tokenizer here
     )
     
     # Train model

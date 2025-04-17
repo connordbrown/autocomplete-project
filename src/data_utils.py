@@ -13,8 +13,11 @@ def load_gutenberg():
 def preprocess_data(dataset, tokenizer, max_length=128):
     """Preprocess and tokenize dataset."""
     def tokenize_function(examples):
-        return tokenizer(examples["text"], truncation=True, padding="max_length", 
+        inputs = tokenizer(examples["text"], truncation=True, padding="max_length", 
                          max_length=max_length)
+        # Set labels equal to input_ids for causal language modeling
+        inputs["labels"] = inputs["input_ids"].copy()
+        return inputs
     
     tokenized_dataset = dataset.map(tokenize_function, batched=True)
     return tokenized_dataset

@@ -2,19 +2,28 @@ import torch
 from transformers import GPT2LMHeadModel, Trainer, TrainingArguments
 
 def load_model(model_name="gpt2"):
-    """Load pre-trained GPT-2 model."""
+    """Load pre-trained GPT-2 model. """
     return GPT2LMHeadModel.from_pretrained(model_name)
 
 def setup_training(model, train_dataset, eval_dataset=None, 
-                   output_dir="./models/webtext-model", 
-                   epochs=3, batch_size=8):
+                   output_dir="./models/webtext-model",
+                   epochs=3, batch_size=8, tokenizer=None):
     """Setup training arguments and trainer."""
+    from transformers import DataCollatorForLanguageModeling
+    
+    # Add data collator for language modeling
+    data_collator = DataCollatorForLanguageModeling(
+        tokenizer=tokenizer,
+        mlm=False  # Not using masked language modeling (use causal LM instead)
+    )
+    
     eval_steps = None
     if eval_dataset:
         evaluation_strategy = "steps"
         eval_steps = len(train_dataset) // batch_size
     else:
         evaluation_strategy = "no"
+        
     training_args = TrainingArguments(
         output_dir=output_dir,
         learning_rate=5e-5,
@@ -28,11 +37,13 @@ def setup_training(model, train_dataset, eval_dataset=None,
     )
     
     training_args.evaluation_strategy = evaluation_strategy  # Set it after initialization
+    
     trainer = Trainer(
         model=model,
         args=training_args,
         train_dataset=train_dataset,
         eval_dataset=eval_dataset,
+        data_collator=data_collator,  # Add the data collator for language modeling
     )
     
     return trainer
