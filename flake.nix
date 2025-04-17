@@ -36,6 +36,7 @@
               datasets
               accelerate
               pyarrow
+              # fix evaluation.py
               rouge-score
               spacy
             ]))
