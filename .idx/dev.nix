@@ -8,6 +8,7 @@
     # pkgs.go
     pkgs.python311
     pkgs.python3Packages.pip
+    pkgs.openssh
   ];
   # Sets environment variables in the workspace
   env = {};

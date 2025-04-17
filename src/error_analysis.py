@@ -1,28 +1,35 @@
-import spacy
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.tag import pos_tag
+nltk.download('punkt', quiet=True)
+nltk.download('averaged_perceptron_tagger', quiet=True)
 
 class ErrorAnalyzer:
     def __init__(self):
-        """Initialize with NLP model for error analysis."""
-        self.nlp = spacy.load("en_core_web_sm")
+        """Initialize the ErrorAnalyzer with NLTK."""
+        pass
     
     def analyze_formality(self, text):
         """Analyze text formality based on simple heuristics."""
-        doc = self.nlp(text)
+        tokens = word_tokenize(text)
         
         # Count formal indicators
         formal_indicators = sum([
-            1 for token in doc if token.text.lower() in 
+            1 for token in tokens if token.lower() in 
             ["shall", "would", "could", "may", "therefore", "thus", "hence"]
         ])
         
         # Count informal indicators
         informal_indicators = sum([
-            1 for token in doc if token.text.lower() in 
+            1 for token in tokens if token.lower() in 
             ["gonna", "wanna", "gotta", "kinda", "sorta", "yeah", "nah", "hey"]
         ])
         
         # Count contractions
-        contractions = sum([1 for token in doc if "'" in token.text])
+        contractions = sum([1 for token in tokens if "'" in token])
+        
+        # Count interjections
+        interjections = sum([1 for token, pos in pos_tag(tokens) if pos == "UH"])
         
         # Calculate formality score (0 = informal, 1 = formal)
         total_indicators = formal_indicators + informal_indicators + contractions
@@ -30,7 +37,7 @@ class ErrorAnalyzer:
             return 0.5  # Neutral
         
         formality_score = formal_indicators / (formal_indicators + informal_indicators + contractions)
-        return formality_score
+        return formality_score + 0.1 * interjections / len(tokens)
     
     def categorize_errors(self, predictions, references):
         """Categorize prediction errors into semantic, grammatical, and style categories."""
@@ -41,11 +48,14 @@ class ErrorAnalyzer:
         }
         
         for pred, ref in zip(predictions, references):
-            # Check for grammatical errors using SpaCy
-            pred_doc = self.nlp(pred)
-            has_grammatical_error = any(token.dep_ == 'ROOT' and 
-                                        token.pos_ not in ['VERB', 'AUX'] 
-                                        for token in pred_doc)
+            # Check for grammatical errors using NLTK
+            pred_tokens = word_tokenize(pred)
+            if len(pred_tokens) > 0:
+                pos_tags = pos_tag(pred_tokens)
+                first_word_pos = pos_tags[0][1]
+                has_grammatical_error = first_word_pos not in ['VB', 'NN', 'PRP', 'JJ', 'DT', 'IN']
+            else:
+                has_grammatical_error = False
             
             # Basic style consistency check
             style_mismatch = False
