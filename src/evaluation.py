@@ -14,7 +14,7 @@ class AutocompleteEvaluator:
     def calculate_perplexity(self, text):
         """Calculate perplexity for a given text."""
         max_len = self.model.config.n_positions
-        encodings = self.tokenizer(text, padding=True, truncation=True, max_length=max_len, return_tensors="pt")
+        encodings = self.tokenizer(text, padding=True, truncation=True, max_length=max_len, return_tensors="pt", return_attention_mask=True)
         stride = 512
         seq_len = encodings.input_ids.size(1)
         
@@ -122,7 +122,7 @@ class AutocompleteEvaluator:
             prefix = text[:prefix_length]
             reference = text[prefix_length:]
             
-            # Generate prediction
+            # Generate prediction up to 5 words
             prediction = autocomplete_generator.generate_completions(
                 prefix, max_length=5, num_return_sequences=1)[0]
             

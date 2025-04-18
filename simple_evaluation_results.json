@@ -1,0 +1,37 @@
+{
+  "perplexity": 38.91490290922703,
+  "word_accuracy": 0.03733333333333333,
+  "char_accuracy": 0.08349999999999995,
+  "bleu_score": 2.714517406984967e-156,
+  "rouge_f1": 0.04851587301587302,
+  "semantic_errors": 100,
+  "grammatical_errors": 0,
+  "style_inconsistencies": 0,
+  "examples": [
+    {
+      "prefix": "sorry mani",
+      "prediction": "! The girl who said",
+      "reference": "a i stole your forma"
+    },
+    {
+      "prefix": "According ",
+      "prediction": "\u00a0Fossil fuels",
+      "reference": "to a number of repor"
+    },
+    {
+      "prefix": "The latest",
+      "prediction": " update from the European Parliament",
+      "reference": " quarterback prospec"
+    },
+    {
+      "prefix": "Get the bi",
+      "prediction": "weekly newsletter Upgrade your inbox",
+      "reference": "ggest daily stories "
+    },
+    {
+      "prefix": "A Palestin",
+      "prediction": "an man who was injured",
+      "reference": "ian wearing what app"
+    }
+  ]
+}
