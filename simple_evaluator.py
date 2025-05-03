@@ -319,7 +319,7 @@ def main():
     parser = argparse.ArgumentParser(description="Simple Autocomplete Evaluation")
     parser.add_argument("--model_path", type=str, default="./models/webtext-model",
                        help="Path to the trained model")
-    parser.add_argument("--num_samples", type=int, default=50,
+    parser.add_argument("--num_samples", type=int, default=100,
                        help="Number of samples for evaluation")
     parser.add_argument("--output_file", type=str, default="./simple_evaluation_results.json",
                        help="Path to save evaluation results")

@@ -1,36 +1,36 @@
 {
   "perplexity": 38.91490290922703,
-  "word_accuracy": 0.03733333333333333,
-  "char_accuracy": 0.08349999999999995,
-  "bleu_score": 2.714517406984967e-156,
-  "rouge_f1": 0.04851587301587302,
-  "semantic_errors": 100,
+  "word_accuracy": 0.027416666666666666,
+  "char_accuracy": 0.0775000000000002,
+  "bleu_score": 1.7170230151412773e-80,
+  "rouge_f1": 0.05493488455988452,
+  "semantic_errors": 400,
   "grammatical_errors": 0,
   "style_inconsistencies": 0,
   "examples": [
     {
       "prefix": "sorry mani",
-      "prediction": "! The girl who said",
+      "prediction": "...I can see why",
       "reference": "a i stole your forma"
     },
     {
       "prefix": "According ",
-      "prediction": "\u00a0Fossil fuels",
+      "prediction": "\u0441\u0442\u0440\u0435\ufffd",
       "reference": "to a number of repor"
     },
     {
       "prefix": "The latest",
-      "prediction": " update from the European Parliament",
+      "prediction": " example of the rising political",
       "reference": " quarterback prospec"
     },
     {
       "prefix": "Get the bi",
-      "prediction": "weekly newsletter Upgrade your inbox",
+      "prediction": "ometrics and medical device",
       "reference": "ggest daily stories "
     },
     {
       "prefix": "A Palestin",
-      "prediction": "an man who was injured",
+      "prediction": "an man who has been",
       "reference": "ian wearing what app"
     }
   ]
