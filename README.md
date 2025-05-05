@@ -1,13 +1,28 @@
 # autocomplete-project
 
-This guide explains how to use my GPT-2 autocomplete training and evaluation system provided in the two Python files: `simple_trainer.py` and `simple_evaluator.py`.
+This guide explains how to use my GPT-2 autocomplete training and evaluation system.
 
 ## System Overview
 
 This system consists of two main components:
 
-1. **Trainer (`simple_trainer.py`)**: Trains a GPT-2 model on text data for autocomplete functionality.
-2. **Evaluator (`simple_evaluator.py`)**: Tests the trained model's performance using various metrics.
+1. Trainer (`simple_trainer.py`): Trains a GPT-2 model on text data for autocomplete functionality.
+2. Evaluator (`simple_evaluator.py`): Tests the trained model's performance using various metrics.
+
+There are six auxiliary files and folders:
+
+1. `.idx`: Sets up Nix environment.
+2. `.vscode`: Other Nix environment configuration.
+3. `.gitignore`: Keeps trained models and cache files local.
+4. `flake.nix`: Sets up dependencies.
+4. `flake.lock`: Works with `flake.nix`.
+5. `simple_evaluation_results.json`: Displays results of running `simple_evaluator.py`.
+
+And three unused/untested/prototype files and folders:
+
+1. `src`: Contains python files for a more sophisticated but computationally expensive autocomplete.
+2. `scripts`: Contains python files for running the more complex autocomplete system.
+3.  `app.py`: Script for running a user-testable CLI that uses the complex autocomplete system.
 
 ## Dependencies
 
