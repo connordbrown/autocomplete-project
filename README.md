@@ -6,7 +6,7 @@ Here is the video link for the full project presentation: https://youtu.be/eG38H
 
 The full research report is attached in the file `CSPB4830_FinalProjectReport.pdf`.
 
-The project presentation slides are attached in the file `CSPB4830_FinalProjectPresentation.pdf`.
+The project presentation slides are attached in the file `CSPB4830_FinalProjectPresentation.pptx`.
 
 ## Overview
 
