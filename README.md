@@ -4,7 +4,9 @@ This guide explains how to use my GPT-2 autocomplete training and evaluation sys
 
 Here is the video link for the full project presentatiion: https://youtu.be/eG38Hr6dvOg
 
-The full research report is attached in the file `CSPB4830_FinalProjectReport.pdf`, and the project presentatin is attached in the file `CSPB4830_FinalProjectPresentation.pdf`.
+The full research report is attached in the file `CSPB4830_FinalProjectReport.pdf`.
+
+The project presentation is attached in the file `CSPB4830_FinalProjectPresentation.pdf`.
 
 ## Overview
 
