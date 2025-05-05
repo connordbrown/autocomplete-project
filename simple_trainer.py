@@ -51,7 +51,7 @@ def train_in_batches(model, tokenizer, data_loader, total_samples,
     steps_per_epoch = total_samples // batch_size
     
     for epoch in range(epochs):
-        print(f"Starting epoch {epoch+1}/{epochs}")
+        print(f"Starting epoch {epoch+1}/{epochs}...")
         
         running_loss = 0.0
         step = 0
